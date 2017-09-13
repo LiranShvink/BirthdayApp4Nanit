@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Birthday</string>
+    <string name="title_activity_ndbirthday">BirthdayActivity</string>
 </resources>
