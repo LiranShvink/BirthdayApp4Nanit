@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="app_theme_list">
+        <item>@color/colorBackgroundElephant</item>
+        <item>@color/colorBackgroundFox</item>
+        <item>@color/colorBackgroundPelican</item>
+    </array>
+
+</resources>

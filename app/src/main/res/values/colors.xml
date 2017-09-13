@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-
     <color name="colorBackgroundElephant">#F9F0D7</color>
     <color name="colorBackgroundFox">#C5E8DF</color>
     <color name="colorBackgroundPelican">#DAF1F6</color>
+
+    <color name="colorShareButton">#EF7B7B</color>
+    <color name="colorMainText">#394562</color>
+
 </resources>

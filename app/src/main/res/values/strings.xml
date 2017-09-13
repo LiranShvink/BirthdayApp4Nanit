@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Birthday</string>
     <string name="title_activity_ndbirthday">BirthdayActivity</string>
+
+    <string name="title_share_button">Share the news</string>
+
+    <string name="title_name_prefix">Today %1$s is</string>
 </resources>

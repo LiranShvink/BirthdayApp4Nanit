@@ -7,6 +7,16 @@
     android:background="@color/colorBackgroundElephant"
     tools:context="com.appandgo.birthday.NDBirthdayActivity">
 
+    <Button
+        style="@style/Buttons.ShareStyle"
+
+        android:id="@+id/btnShare"
+        android:layout_width="162dp"
+        android:layout_height="40dp"
+        android:text="@string/title_share_button"
+        android:layout_above="@+id/imageViewChild"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp" />
 
     <ImageView
         android:id="@+id/imageViewChild"
@@ -51,4 +61,48 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         app:srcCompat="@drawable/camera_icon_yellow" />
+
+    <TextView
+        android:id="@+id/txtYear"
+        android:layout_above="@+id/btnShare"
+        style="@style/Text.Birtday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="19dp"
+        android:text="Name" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtYear"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginBottom="19dp"
+        android:orientation="horizontal"
+        android:id="@+id/layoutAgeContainer">
+
+        <ImageView
+            android:id="@+id/leftSwirls"
+            style="@style/Image.Birtday"
+            app:srcCompat="@drawable/left_swirls" />
+
+        <ImageView
+            android:id="@+id/imageAge"
+            style="@style/Image.Birtday"
+            app:srcCompat="@drawable/four" />
+
+        <ImageView
+            android:id="@+id/rightSwirls"
+            style="@style/Image.Birtday"
+            app:srcCompat="@drawable/right_swirls" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layoutAgeContainer"
+        style="@style/Text.Birtday"
+        android:layout_marginBottom="20dp"
+        android:text="TextView" />
 </RelativeLayout>

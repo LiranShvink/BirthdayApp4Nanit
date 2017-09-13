@@ -3,9 +3,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorBackgroundElephant</item>
+        <item name="colorPrimaryDark">@color/colorBackgroundElephant</item>
+        <item name="colorAccent">@color/colorBackgroundFox</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -13,8 +13,51 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <!-- Splash Screen theme. -->
+    <style name="SplashTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen_bg</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- Buttons -->
+
+    <style name="Buttons">
+        <item name="android:textColor">@color/colorShareButton</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@drawable/btn_share</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingLeft">10dp</item>
+    </style>
+
+    <style name="Buttons.ShareStyle">
+        <item name="android:drawableRight">@drawable/ic_share_pink</item>
+        <item name="android:drawablePadding">2dp</item>
+    </style>
+
+    <!-- Text -->
+    <style name="Text">
+        <item name="android:textColor">@color/colorMainText</item>
+        <item name="android:textSize">20sp</item>
+
+    </style>
+
+    <style name="Text.Birtday">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Text -->
+    <style name="Image">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Image.Birtday">
+        <item name="android:layout_margin">9dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
 
 </resources>

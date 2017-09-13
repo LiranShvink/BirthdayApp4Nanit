@@ -1,11 +1,10 @@
 package com.appandgo.birthday;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class NDMainActivity extends AppCompatActivity {
+public class NDMainActivity extends NDBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
