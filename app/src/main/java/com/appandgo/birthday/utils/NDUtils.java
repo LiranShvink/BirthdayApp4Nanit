@@ -1,6 +1,9 @@
 package com.appandgo.birthday.utils;
 
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 
 import com.appandgo.birthday.R;
 
@@ -12,13 +15,23 @@ import java.util.Random;
 
 public class NDUtils {
 
-    public  static int getRandomThemeColor(Context context)
+    public static int getRandomThemeColor(Context context)
     {
-        int[] mThemeColorArr;
         final Random r = new Random();
-        mThemeColorArr = context.getResources().getIntArray(R.array.app_theme_list);
+        int[] themeColorArr = context.getResources().getIntArray(R.array.app_theme_list);
 
-        int randomIdx = r.nextInt(mThemeColorArr.length);
-        return mThemeColorArr[randomIdx];
+        int randomIdx = r.nextInt(themeColorArr.length);
+        return themeColorArr[randomIdx];
+    }
+
+    public static Drawable convertNumberToImageDigit(Context context, int number)
+    {
+        TypedArray digitsArr = context.getResources().obtainTypedArray(R.array.digits_list);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            return context.getResources().getDrawable(digitsArr.getResourceId(number, -1), context.getTheme());
+        } else {
+            return context.getResources().getDrawable( digitsArr.getResourceId(number, -1) );
+        }
     }
 }

@@ -7,4 +7,20 @@
         <item>@color/colorBackgroundPelican</item>
     </array>
 
+    <array name="digits_list">
+        <item>@drawable/one_half</item>
+        <item>@drawable/one</item>
+        <item>@drawable/two</item>
+        <item>@drawable/three</item>
+        <item>@drawable/four</item>
+        <item>@drawable/five</item>
+        <item>@drawable/six</item>
+        <item>@drawable/seven</item>
+        <item>@drawable/eight</item>
+        <item>@drawable/nine</item>
+        <item>@drawable/ten</item>
+        <item>@drawable/eleven</item>
+        <item>@drawable/twelve</item>
+    </array>
+
 </resources>

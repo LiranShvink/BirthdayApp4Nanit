@@ -37,9 +37,4 @@ public class NDBaseActivity extends AppCompatActivity {
             getWindow().setStatusBarColor(color);
         }
     }
-
-    private String getFormatName(String name)
-    {
-        return getString(R.string.title_name_prefix, name);
-    }
 }
