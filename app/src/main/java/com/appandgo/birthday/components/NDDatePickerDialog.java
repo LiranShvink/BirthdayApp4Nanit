@@ -22,7 +22,7 @@ import java.util.Date;
 public class NDDatePickerDialog extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
     private DatePickerDialog.OnDateSetListener  mlistener;
-    private TextView mTextView;
+//    private TextView mTextView;
 
     public NDDatePickerDialog()
     {
@@ -60,7 +60,7 @@ public class NDDatePickerDialog extends DialogFragment implements DatePickerDial
 
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-        mTextView.setText(getDateFormatToShow(year, month, day));
+//        mTextView.setText(getDateFormatToShow(year, month, day));
         if (mlistener != null) {
             mlistener.onDateSet(datePicker, year, month, day);
         }
