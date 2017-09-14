@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/colorBackgroundFox"
+    android:id="@+id/imagePicker"
+    android:transitionName="@string/transition_name_imagepicker"
+    tools:showIn="@layout/activity_ndmain">
+
+    <ImageView
+        android:id="@+id/imageViewChild"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageViewOverlay"
+        android:layout_alignLeft="@+id/imageViewOverlay"
+        android:layout_alignRight="@+id/imageViewOverlay"
+        android:layout_alignTop="@+id/imageViewOverlay"
+        android:scaleType="fitXY"
+        android:src="@drawable/default_place_holder_yellow" />
+
+    <ImageView
+        android:id="@+id/imageViewOverlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/image_elephant_everlay" />
+
+    <ImageButton
+        android:id="@+id/imageButtonCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/imageViewOverlay"
+        android:layout_alignTop="@+id/imageViewOverlay"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/camera_icon_yellow" />
+</RelativeLayout>

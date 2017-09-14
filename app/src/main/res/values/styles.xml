@@ -11,6 +11,7 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
     <!-- Splash Screen theme. -->
@@ -21,6 +22,8 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="DialogTheme" parent="@android:style/Theme.Holo.Dialog"></style>
 
     <!-- Buttons -->
 
@@ -46,6 +49,7 @@
     </style>
 
     <style name="Text.Birtday">
+        <item name="android:textAlignment">center</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:textAllCaps">true</item>
     </style>
@@ -59,6 +63,12 @@
     <style name="Image.Birtday">
         <item name="android:layout_margin">9dp</item>
         <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <!-- Edit Text -->
+
+    <style name="et_text_hint" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">12sp</item>
     </style>
 
 </resources>

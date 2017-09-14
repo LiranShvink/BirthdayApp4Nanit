@@ -5,79 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackgroundElephant"
-    tools:context="com.appandgo.birthday.NDBirthdayActivity">
+    tools:context="com.appandgo.birthday.Activities.NDBirthdayActivity">
 
     <Button
-        style="@style/Buttons.ShareStyle"
-
         android:id="@+id/btnShare"
+
+        style="@style/Buttons.ShareStyle"
         android:layout_width="162dp"
         android:layout_height="40dp"
-        android:text="@string/title_share_button"
-        android:layout_above="@+id/imageViewChild"
+        android:layout_above="@+id/imagePicker"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="14dp" />
+        android:layout_marginBottom="14dp"
+        android:text="@string/title_share_button" />
 
-    <ImageView
-        android:id="@+id/imageViewChild"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:scaleType="fitXY"
-        android:layout_alignTop="@+id/imageViewOverlay"
-        android:layout_alignBottom="@+id/imageViewOverlay"
-        android:layout_alignRight="@+id/imageViewOverlay"
-        android:layout_alignLeft="@+id/imageViewOverlay"
-        app:srcCompat="@drawable/default_place_holder_yellow" />
-
-    <ImageView
-        android:id="@+id/imageViewOverlay"
+    <include
+        layout="@layout/view_imagepicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom|center"
         android:layout_centerHorizontal="true"
-        android:scaleType="fitXY"
-        android:layout_marginBottom="76dp"
-        app:srcCompat="@drawable/image_elephant_everlay" />
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="76dp" />
 
     <ImageView
         android:id="@+id/imageViewBg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:scaleType="fitXY"
         android:layout_gravity="bottom"
-        app:srcCompat="@drawable/android_elephant_popup" />
-
-    <ImageButton
-        android:id="@+id/imageButtonCamera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:layout_alignTop="@+id/imageViewOverlay"
-        android:layout_alignRight="@+id/imageViewOverlay"
         android:scaleType="fitXY"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        app:srcCompat="@drawable/camera_icon_yellow" />
+        app:srcCompat="@drawable/android_elephant_popup" />
 
     <TextView
         android:id="@+id/txtAge"
-        android:layout_above="@+id/btnShare"
         style="@style/Text.Birtday"
+        android:layout_above="@+id/btnShare"
         android:layout_marginBottom="19dp"
         android:text="Name" />
 
     <LinearLayout
+        android:id="@+id/layoutAgeContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/txtAge"
         android:layout_centerHorizontal="true"
-        android:gravity="center"
         android:layout_marginBottom="19dp"
-        android:orientation="horizontal"
-        android:id="@+id/layoutAgeContainer">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/leftSwirls"
@@ -97,10 +71,21 @@
 
     <TextView
         android:id="@+id/txtName"
-        android:layout_above="@+id/layoutAgeContainer"
         style="@style/Text.Birtday"
+        android:layout_above="@+id/layoutAgeContainer"
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="30dp"
-        android:text="TextView" />
+        android:text="TextView\ndfsdf" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/transparent"
+        android:onClick="btnBackPressed"
+        android:padding="@dimen/general_margin"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
 </RelativeLayout>

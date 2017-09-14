@@ -1,27 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.appandgo.birthday.NDMainActivity">
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:background="@color/colorBackgroundElephant"
+    tools:context="com.appandgo.birthday.Activities.NDMainActivity">
 
     <TextView
+        android:id="@+id/txtTitle"
+        style="@style/Text.Birtday"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/general_margin"
+        android:text="@string/txt_welcome_title"/>
+
+    <include
+        layout="@layout/view_imagepicker"
+        android:layout_below="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageViewBg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/android_elephant_popup" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/text_input_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/imagePicker"
+        android:layout_alignStart="@+id/imagePicker"
+        android:layout_below="@+id/imagePicker"
+        android:layout_marginTop="@dimen/general_margin"
+        android:layout_marginBottom="@dimen/general_margin"
+        app:hintTextAppearance="@style/et_text_hint">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Please enter your name" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/text_input_layout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/text_input_layout"
+        android:layout_alignStart="@+id/text_input_layout"
+        android:layout_below="@+id/text_input_layout"
+        app:hintTextAppearance="@style/et_text_hint">
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Please enter your name" />
+    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/button"
+        style="@style/Buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/text_input_layout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/general_margin"
         android:onClick="btnNextPressed"
         android:text="Next"
+
         tools:layout_editor_absoluteX="160dp"
         tools:layout_editor_absoluteY="323dp" />
 
-</android.support.constraint.ConstraintLayout>
+
+
+</RelativeLayout>
