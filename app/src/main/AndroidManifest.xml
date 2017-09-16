@@ -34,6 +34,12 @@
             android:screenOrientation="portrait">
 
         </activity>
+        <activity android:name=".Activities.NDCaptureAndCropActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>

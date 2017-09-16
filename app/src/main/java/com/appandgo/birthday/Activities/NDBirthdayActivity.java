@@ -31,8 +31,15 @@ public class NDBirthdayActivity extends NDBaseActivity {
         // Init views
         getViewsIDAndInit();
 
+        setThemeAssets();
+
         setDataToViews();
 
+    }
+
+    private void setThemeAssets() {
+//        setBackgroundColor(R.layout.activity_birthday);
+//        imageViewUser.setImageDrawable(getCurrentThemeGrapics(ThemeAssets.PLACEHOLDER));
     }
 
     private void getViewsIDAndInit() {
@@ -65,11 +72,11 @@ public class NDBirthdayActivity extends NDBaseActivity {
 
         btnShare.setTransformationMethod(null);
 
-        ivAge.setImageDrawable(NDUtils.convertNumberToImageDigit(this, 5));
+        ivAge.setImageDrawable(NDUtils.convertNumberToImageDigit(this, NDUtils.getDateAsSingleNumber(obj.year, obj.month, obj.day)));
 
         txtName.setText(getFormatName(obj.name));
 
-        txtAge.setText("Months old!");
+        txtAge.setText(NDUtils.getDateFormatToShowAsTimeline(obj.year, obj.month, obj.day));
     }
 
     private String getFormatName(String name) {

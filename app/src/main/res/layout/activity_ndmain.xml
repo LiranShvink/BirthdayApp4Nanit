@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
+    android:clickable="true"
     android:background="@color/colorBackgroundElephant"
     tools:context="com.appandgo.birthday.Activities.NDMainActivity">
 
@@ -44,9 +45,11 @@
         app:hintTextAppearance="@style/et_text_hint">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/etName"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:singleLine="true"
             android:hint="Please enter your name" />
     </android.support.design.widget.TextInputLayout>
 
@@ -72,8 +75,8 @@
     <Button
         android:id="@+id/button"
         style="@style/Buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="162dp"
+        android:layout_height="40dp"
         android:layout_below="@+id/text_input_layout1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/general_margin"

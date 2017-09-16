@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:onClick="btnImagePickerPressed"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
@@ -34,8 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/imageViewOverlay"
         android:layout_alignTop="@+id/imageViewOverlay"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginRight="@dimen/camera_icon_margin"
+        android:layout_marginTop="@dimen/camera_icon_margin"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
         android:src="@drawable/camera_icon_yellow" />

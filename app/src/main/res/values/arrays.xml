@@ -23,4 +23,29 @@
         <item>@drawable/twelve</item>
     </array>
 
+    <string-array name="elephant_theme">
+        <item>@drawable/android_elephant_popup</item>
+        <item>@drawable/default_place_holder_yellow</item>
+        <item>@drawable/camera_icon_yellow</item>
+    </string-array>
+
+    <string-array name="fox_theme">
+        <item>@drawable/android_fox_popup</item>
+        <item>@drawable/default_place_holder_green</item>
+        <item>@drawable/default_place_holder_green</item>
+    </string-array>
+
+    <string-array name="pelican_theme">
+        <item>@drawable/android_pelican_popup</item>
+        <item>@drawable/default_place_holder_blue</item>
+        <item>@drawable/default_place_holder_blue</item>
+    </string-array>
+
+    <array name="theme_array_list_chooser">
+        <item>@array/elephant_theme</item>
+        <item>@array/fox_theme</item>
+        <item>@array/pelican_theme</item>
+
+    </array>
+
 </resources>

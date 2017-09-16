@@ -18,4 +18,5 @@ public class NDBirthdayObj implements Serializable {
     public int month;
     public int day;
     public Bitmap image;
+    public int selectedTheme = 0;
 }

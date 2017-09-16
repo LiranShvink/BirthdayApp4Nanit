@@ -3,6 +3,8 @@ package com.appandgo.birthday.Activities;
 import android.app.ActivityOptions;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.nfc.NfcManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -20,11 +22,18 @@ import android.widget.TextView;
 import com.appandgo.birthday.R;
 import com.appandgo.birthday.components.NDDatePickerDialog;
 import com.appandgo.birthday.objects.NDBirthdayObj;
+import com.appandgo.birthday.utils.NDUtils;
+
+import java.util.Calendar;
 
 public class NDMainActivity extends NDBaseActivity {
 
     public static final String ND_BIRTHDAY_OBJ = "ndBirthdayObj";
+    private EditText etName;
     private EditText etBirthdayDate;
+    private ViewGroup imagePicker;
+    private ImageView imageViewUser;
+    private Calendar selectedDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +42,24 @@ public class NDMainActivity extends NDBaseActivity {
 
         getViewsIDAndInit();
 
+        setThemeAssets();
+
         handleClicks();
+    }
+
+    private void setThemeAssets() {
+
+        imageViewUser.setImageDrawable(getCurrentThemeGrapics(ThemeAssets.PLACEHOLDER));
     }
 
     private void getViewsIDAndInit() {
 
         etBirthdayDate = (EditText) findViewById(R.id.etBirthdayDate);
+        etName = (EditText) findViewById(R.id.etName);
+        imagePicker = (ViewGroup) getLayoutInflater().inflate(R.layout.view_imagepicker, null);
+        imageViewUser = (ImageView) findViewById(R.id.imageViewChild);
 
+        selectedDate = Calendar.getInstance();
     }
 
     private void handleClicks() {
@@ -51,7 +71,9 @@ public class NDMainActivity extends NDBaseActivity {
 
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                        Log.d("date", i + "/" + i1 + "/" + i2 );
+                        selectedDate.set(i, i1, i2);
+                        etBirthdayDate.setText(NDUtils.getDateFormatToShowAsDate(i, i1 - 1, i2));
+
                     }
                 });
                 ndDatePickerDialog.show(getSupportFragmentManager(), "datepicker");
@@ -61,16 +83,31 @@ public class NDMainActivity extends NDBaseActivity {
     }
 
     /**
+     * Called when the user clicks the imagePicker button
+     */
+    public void btnImagePickerPressed(View view) {
+        NDCaptureAndCropActivity captureActivity = new NDCaptureAndCropActivity();
+        captureActivity.setListener(new NDCaptureAndCropActivity.OnImageCroppedListener() {
+            @Override
+            public void onImageCropped(Bitmap bitmap) {
+               imageViewUser.setImageBitmap(bitmap);
+            }
+        });
+        Intent intent = new Intent(NDMainActivity.this, NDCaptureAndCropActivity.class);
+        startActivity(intent);
+    }
+
+    /**
      * Called when the user clicks the next button
      */
     public void btnNextPressed(View view) {
-
         NDBirthdayObj ndBirthdayObj = new NDBirthdayObj();
-        ndBirthdayObj.day = 7;
-        ndBirthdayObj.month = 4;
-        ndBirthdayObj.year = 1979;
+        ndBirthdayObj.year = selectedDate.get(Calendar.YEAR);
+        ndBirthdayObj.month = selectedDate.get(Calendar.MONTH);;
+        ndBirthdayObj.day = selectedDate.get(Calendar.DAY_OF_MONTH);
         ndBirthdayObj.image = null;
-        ndBirthdayObj.name = "bar";
+        ndBirthdayObj.name = etName.getText().toString();
+        ndBirthdayObj.selectedTheme = this.selectedTheme;
 
         Intent intent = new Intent(this, NDBirthdayActivity.class);
         intent.putExtra(ND_BIRTHDAY_OBJ, ndBirthdayObj);
@@ -92,6 +129,7 @@ public class NDMainActivity extends NDBaseActivity {
         } else {
             startActivity(intent);
         }
+
     }
 
 }

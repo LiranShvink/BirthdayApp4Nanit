@@ -12,6 +12,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowContentTransitions">true</item>
+
+        <item name="colorControlNormal">@color/colorMainText</item>
+        <item name="colorControlActivated">@color/colorShareButton</item>
+        <item name="colorControlHighlight">@color/colorShareButton</item>
+
     </style>
 
     <!-- Splash Screen theme. -->
@@ -69,6 +74,7 @@
 
     <style name="et_text_hint" parent="TextAppearance.Design.Hint">
         <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorMainText</item>
     </style>
 
 </resources>

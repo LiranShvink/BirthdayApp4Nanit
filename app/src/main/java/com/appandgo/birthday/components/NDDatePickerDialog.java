@@ -48,21 +48,11 @@ public class NDDatePickerDialog extends DialogFragment implements DatePickerDial
         return dialog;
     }
 
-    @NonNull
-    private String getDateFormatToShow(int year, int month, int day) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year, month, day);
-        DateFormat formatter = DateFormat.getDateInstance(DateFormat.LONG);
-        formatter.setTimeZone(calendar.getTimeZone());
-
-        return formatter.format(calendar.getTime());
-    }
-
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
 //        mTextView.setText(getDateFormatToShow(year, month, day));
         if (mlistener != null) {
-            mlistener.onDateSet(datePicker, year, month, day);
+            mlistener.onDateSet(datePicker, year, month + 1, day);
         }
     }
 }
