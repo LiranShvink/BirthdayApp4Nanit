@@ -19,7 +19,8 @@ import static com.appandgo.birthday.Activities.NDMainActivity.ND_BIRTHDAY_OBJ;
 enum ThemeAssets {
     BG,
     PLACEHOLDER,
-    CAMICON;
+    CAMICON,
+    OVERLAY;
 }
 
 public class NDBaseActivity extends AppCompatActivity {
@@ -92,6 +93,7 @@ public class NDBaseActivity extends AppCompatActivity {
     }
 
     protected void overrideBarColors(int color) {
+        selectedTheme = color;
         setBarColors(color);
         setThemeGrapics(color);
     }

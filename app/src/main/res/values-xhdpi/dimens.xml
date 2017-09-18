@@ -1,3 +1,5 @@
 <resources>
-    <dimen name="camera_icon_margin">15dp</dimen>
+    <dimen name="imagepicker_botom_margin">66dp</dimen>
+    <dimen name="general_margin">16dp</dimen>
+    <dimen name="camera_icon_margin">17dp</dimen>
 </resources>

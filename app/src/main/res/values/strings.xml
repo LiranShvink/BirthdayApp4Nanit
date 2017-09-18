@@ -5,7 +5,7 @@
     <string name="title_share_button">Share the news</string>
 
     <string name="title_name_prefix">Today %1$s is</string>
-    <string name="txt_welcome_title">Welcom to Birthday App\nPlease choose an image</string>
+    <string name="txt_welcome_title">Welcome to Birthday App\nPlease choose an image</string>
     <string name="transition_name_imagepicker">imagePicker</string>
     <string name="transition_name_background">background</string>
 </resources>

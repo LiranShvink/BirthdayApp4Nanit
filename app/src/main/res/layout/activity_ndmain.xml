@@ -5,11 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
-    android:orientation="vertical"
     android:clickable="true"
-    android:background="@color/colorBackgroundElephant"
     tools:context="com.appandgo.birthday.Activities.NDMainActivity">
 
+    <include layout="@layout/view_background_color"/>
     <TextView
         android:id="@+id/txtTitle"
         style="@style/Text.Birtday"

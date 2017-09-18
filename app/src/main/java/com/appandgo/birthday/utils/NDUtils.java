@@ -5,12 +5,13 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.appandgo.birthday.R;
 
 import java.text.DateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Random;
 import java.util.TimeZone;
 

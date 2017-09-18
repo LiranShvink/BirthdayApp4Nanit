@@ -9,13 +9,15 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import java.io.IOException;
+
+import static com.appandgo.birthday.Activities.NDMainActivity.BITMAP_RESAULT;
+
 /**
  * Created by naor on 15/09/2017.
  */
 
 public class NDCaptureAndCropActivity extends AppCompatActivity {
-
-    private OnImageCroppedListener mlistener;
 
     //keep track of camera capture intent
     final int CAMERA_CAPTURE = 1;
@@ -23,7 +25,7 @@ public class NDCaptureAndCropActivity extends AppCompatActivity {
     final int PIC_CROP = 2;
 
     //captured picture uri
-    private Uri picUri;
+    private Uri imgUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +45,6 @@ public class NDCaptureAndCropActivity extends AppCompatActivity {
 
     }
 
-    public void setListener(OnImageCroppedListener listener)
-    {
-        this.mlistener = listener;
-    }
-
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
 
@@ -55,20 +52,24 @@ public class NDCaptureAndCropActivity extends AppCompatActivity {
             if (requestCode == CAMERA_CAPTURE)
             {
                 //get the Uri for the captured image
-                picUri = data.getData();
-                performCrop();
+                imgUri = data.getData();
+                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("data", bitmap);
+                setResult(BITMAP_RESAULT, resultIntent);
+                finish();
+//                performCrop();
             }
             else if(requestCode == PIC_CROP)
             {
                 //get the returned data
                 Bundle extras = data.getExtras();
                 //get the cropped bitmap
-                Bitmap thePic = extras.getParcelable("data");
-
-                if (mlistener != null) {
-                    mlistener.onImageCropped(thePic);
-                }
-//                finish(); // close the activity
+                Bitmap bitmap = extras.getParcelable("data");
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("data", bitmap);
+                setResult(BITMAP_RESAULT, resultIntent);
+                finish(); // close the activity
             }
         }
         else
@@ -83,7 +84,7 @@ public class NDCaptureAndCropActivity extends AppCompatActivity {
             //call the standard crop action intent (the user device may not support it)
             Intent cropIntent = new Intent("com.android.camera.action.CROP");
             //indicate image type and Uri
-            cropIntent.setDataAndType(picUri, "image/*");
+            cropIntent.setDataAndType(imgUri, "image/*");
             //set crop properties
             cropIntent.putExtra("crop", "true");
             //indicate aspect of desired crop
@@ -105,7 +106,4 @@ public class NDCaptureAndCropActivity extends AppCompatActivity {
         }
     }
 
-    public interface OnImageCroppedListener {
-        void onImageCropped(Bitmap bitmap);
-    }
 }

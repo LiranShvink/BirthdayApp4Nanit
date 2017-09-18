@@ -1,23 +1,19 @@
 package com.appandgo.birthday.Activities;
 
-import android.app.ActivityOptions;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.nfc.NfcManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.RelativeLayout;
 
 import com.appandgo.birthday.R;
 import com.appandgo.birthday.components.NDDatePickerDialog;
@@ -29,10 +25,14 @@ import java.util.Calendar;
 public class NDMainActivity extends NDBaseActivity {
 
     public static final String ND_BIRTHDAY_OBJ = "ndBirthdayObj";
+    public static final int BITMAP_RESAULT = 100;
+
     private EditText etName;
     private EditText etBirthdayDate;
-    private ViewGroup imagePicker;
     private ImageView imageViewUser;
+    private ImageView imageViewOverlay;
+    private ImageView imageViewBG;
+    private ImageButton imageButtonCamera;
     private Calendar selectedDate;
 
     @Override
@@ -50,14 +50,22 @@ public class NDMainActivity extends NDBaseActivity {
     private void setThemeAssets() {
 
         imageViewUser.setImageDrawable(getCurrentThemeGrapics(ThemeAssets.PLACEHOLDER));
+        imageViewOverlay.setImageDrawable(getCurrentThemeGrapics(ThemeAssets.OVERLAY));
+        imageViewBG.setImageDrawable(getCurrentThemeGrapics(ThemeAssets.BG));
+        imageButtonCamera.setImageDrawable(getCurrentThemeGrapics(ThemeAssets.CAMICON));
+
     }
 
     private void getViewsIDAndInit() {
 
         etBirthdayDate = (EditText) findViewById(R.id.etBirthdayDate);
         etName = (EditText) findViewById(R.id.etName);
-        imagePicker = (ViewGroup) getLayoutInflater().inflate(R.layout.view_imagepicker, null);
         imageViewUser = (ImageView) findViewById(R.id.imageViewChild);
+        imageViewOverlay = (ImageView) findViewById(R.id.imageViewOverlay);
+        imageViewBG= (ImageView) findViewById(R.id.imageViewBg);
+        imageButtonCamera= (ImageButton) findViewById(R.id.imageButtonCamera);
+        RelativeLayout l= (RelativeLayout) findViewById(R.id.activity_background);
+        l.setBackgroundColor(selectedTheme);
 
         selectedDate = Calendar.getInstance();
     }
@@ -82,19 +90,25 @@ public class NDMainActivity extends NDBaseActivity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == BITMAP_RESAULT) {
+            Bitmap bp = (Bitmap) data.getExtras().get("data");
+            imageViewUser.setImageBitmap(bp);
+
+        }
+    }
+
     /**
      * Called when the user clicks the imagePicker button
      */
     public void btnImagePickerPressed(View view) {
-        NDCaptureAndCropActivity captureActivity = new NDCaptureAndCropActivity();
-        captureActivity.setListener(new NDCaptureAndCropActivity.OnImageCroppedListener() {
-            @Override
-            public void onImageCropped(Bitmap bitmap) {
-               imageViewUser.setImageBitmap(bitmap);
-            }
-        });
+
         Intent intent = new Intent(NDMainActivity.this, NDCaptureAndCropActivity.class);
         startActivity(intent);
+        startActivityForResult(intent, BITMAP_RESAULT);
     }
 
     /**
