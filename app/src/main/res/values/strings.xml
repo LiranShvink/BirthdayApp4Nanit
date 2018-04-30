@@ -6,6 +6,8 @@
     <string name="txt_welcome_title">Welcome to Birthday App\nPlease choose an image</string>
     <string name="transition_name_imagepicker">imagePicker</string>
     <string name="transition_name_background">background</string>
-    <string name="select_image_title">Select Image</string>
-
+    <string name="select_image_title">Choose image from camera or gallery</string>
+    <string name="camera_capture">"Take Photo</string>
+    <string name="gallery_capture">Choose from Library</string>
+    <string name="cancel">Cancel</string>
 </resources>

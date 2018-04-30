@@ -15,11 +15,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.appandgo.birthday.R;
-import com.appandgo.birthday.fragment.BirthPickerDialog;
 import com.appandgo.birthday.dataobjects.BirthdayObj;
+import com.appandgo.birthday.fragment.BirthPickerDialog;
 import com.appandgo.birthday.utils.Utils;
 
 import java.util.Calendar;
+
 /**
  * Created by liran on 27/4/2018.
  */
@@ -36,6 +37,7 @@ public class MainActivity extends BaseActivity {
     private ImageView imageViewBG;
     private ImageButton imageButtonCamera;
     private Calendar selectedDate;
+    private boolean oneTimeStub = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,9 +66,9 @@ public class MainActivity extends BaseActivity {
         etName = (EditText) findViewById(R.id.etName);
         imageViewUser = (ImageView) findViewById(R.id.imageViewChild);
         imageViewOverlay = (ImageView) findViewById(R.id.imageViewOverlay);
-        imageViewBG= (ImageView) findViewById(R.id.imageViewBg);
-        imageButtonCamera= (ImageButton) findViewById(R.id.imageButtonCamera);
-        RelativeLayout l= (RelativeLayout) findViewById(R.id.activity_background);
+        imageViewBG = (ImageView) findViewById(R.id.imageViewBg);
+        imageButtonCamera = (ImageButton) findViewById(R.id.imageButtonCamera);
+        RelativeLayout l = (RelativeLayout) findViewById(R.id.activity_background);
         l.setBackgroundColor(selectedTheme);
 
         selectedDate = Calendar.getInstance();
@@ -96,22 +98,26 @@ public class MainActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == BITMAP_RESAULT) {
+        if (requestCode == BITMAP_RESAULT && data != null) {
             Bitmap bp = (Bitmap) data.getExtras().get("data");
             imageViewUser.setImageBitmap(bp);
-
         }
+        oneTimeStub = true;
+
     }
 
     /**
      * Called when the user clicks the imagePicker button
      */
     public void btnImagePickerPressed(View view) {
-
-        Intent intent = new Intent(MainActivity.this, CaptureImageActivity.class);
-        startActivity(intent);
-        startActivityForResult(intent, BITMAP_RESAULT);
+        if (oneTimeStub) {
+            Intent intent = new Intent(MainActivity.this, CaptureImageActivity.class);
+            startActivity(intent);
+            startActivityForResult(intent, BITMAP_RESAULT);
+            oneTimeStub = false;
+        }
     }
+
 
     /**
      * Called when the user clicks the next button
@@ -119,7 +125,8 @@ public class MainActivity extends BaseActivity {
     public void btnNextPressed(View view) {
         BirthdayObj birthdayObj = new BirthdayObj();
         birthdayObj.year = selectedDate.get(Calendar.YEAR);
-        birthdayObj.month = selectedDate.get(Calendar.MONTH);;
+        birthdayObj.month = selectedDate.get(Calendar.MONTH);
+        ;
         birthdayObj.day = selectedDate.get(Calendar.DAY_OF_MONTH);
         birthdayObj.image = null;
         birthdayObj.name = etName.getText().toString();
