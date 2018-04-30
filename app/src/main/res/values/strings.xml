@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Birthday</string>
-    <string name="title_activity_ndbirthday">BirthdayActivity</string>
-
+    <string name="app_name">BirthdayApp</string>
+    <string name="title_activity_birthday">BirthdayActivity</string>
     <string name="title_share_button">Share the news</string>
-
     <string name="title_name_prefix">Today %1$s is</string>
     <string name="txt_welcome_title">Welcome to Birthday App\nPlease choose an image</string>
     <string name="transition_name_imagepicker">imagePicker</string>
     <string name="transition_name_background">background</string>
+    <string name="select_image_title">Select Image</string>
+
 </resources>

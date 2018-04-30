@@ -1,15 +1,14 @@
-package com.appandgo.birthday.objects;
+package com.appandgo.birthday.dataobjects;
 
 import android.graphics.Bitmap;
-import android.media.Image;
 
 import java.io.Serializable;
 
 /**
- * Created by naor on 14/09/2017.
+ * Created by liran on 27/4/2018.
  */
 
-public class NDBirthdayObj implements Serializable {
+public class BirthdayObj implements Serializable {
 
     static final long serialVersionUID = 101L;
 

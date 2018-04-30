@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by naor on 13/09/2017.
+ * Created by liran on 27/4/2018.
  */
 
-public class NDSplashActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,7 @@ public class NDSplashActivity extends AppCompatActivity {
         // We DON'T call setContentView View is displaying from the theme and this way it is faster than creating a layout
 
         // Start home activity
-        startActivity(new Intent(NDSplashActivity.this, NDMainActivity.class));
+        startActivity(new Intent(SplashActivity.this, MainActivity.class));
         // close splash activity
         finish();
 

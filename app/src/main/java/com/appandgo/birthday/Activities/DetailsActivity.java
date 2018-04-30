@@ -12,13 +12,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.appandgo.birthday.R;
-import com.appandgo.birthday.objects.NDBirthdayObj;
-import com.appandgo.birthday.utils.NDUtils;
+import com.appandgo.birthday.dataobjects.BirthdayObj;
+import com.appandgo.birthday.utils.Utils;
 
-import static com.appandgo.birthday.Activities.NDMainActivity.BITMAP_RESAULT;
-import static com.appandgo.birthday.Activities.NDMainActivity.ND_BIRTHDAY_OBJ;
-
-public class NDBirthdayActivity extends NDBaseActivity {
+import static com.appandgo.birthday.Activities.MainActivity.BITMAP_RESAULT;
+import static com.appandgo.birthday.Activities.MainActivity.BIRTHDAY_OBJ;
+/**
+ * Created by liran on 27/4/2018.
+ */
+public class DetailsActivity extends BaseActivity {
 
     private Button btnShare;
     private ImageView ivAge;
@@ -81,18 +83,17 @@ public class NDBirthdayActivity extends NDBaseActivity {
     }
 
     private void setDataToViews() {
-        NDBirthdayObj obj = (NDBirthdayObj) getIntent().getSerializableExtra(ND_BIRTHDAY_OBJ);
+        BirthdayObj obj = (BirthdayObj) getIntent().getSerializableExtra(BIRTHDAY_OBJ);
         if (obj == null) {
             return;
         }
 
         btnShare.setTransformationMethod(null);
-
-        ivAge.setImageDrawable(NDUtils.convertNumberToImageDigit(this, NDUtils.getDateAsSingleNumber(obj.year, obj.month, obj.day)));
+        ivAge.setImageDrawable(Utils.convertNumberToImageDigit(this, Utils.getDateAsSingleNumber(obj.year, obj.month, obj.day)));
 
         txtName.setText(getFormatName(obj.name));
 
-        txtAge.setText(NDUtils.getDateFormatToShowAsTimeline(obj.year, obj.month, obj.day));
+        txtAge.setText(Utils.getDateFormatToShowAsTimeline(obj.year, obj.month, obj.day));
     }
 
     /**
@@ -100,7 +101,7 @@ public class NDBirthdayActivity extends NDBaseActivity {
      */
     public void btnImagePickerPressed(View view) {
 
-        Intent intent = new Intent(NDBirthdayActivity.this, NDCaptureAndCropActivity.class);
+        Intent intent = new Intent(DetailsActivity.this, CaptureImageActivity.class);
         startActivity(intent);
         startActivityForResult(intent, BITMAP_RESAULT);
     }

@@ -16,10 +16,10 @@ import java.util.Random;
 import java.util.TimeZone;
 
 /**
- * Created by naor on 13/09/2017.
+ * Created by liran on 27/4/2018.
  */
 
-public class NDUtils {
+public class Utils {
 
     public static int getRandomThemeColor(Context context)
     {

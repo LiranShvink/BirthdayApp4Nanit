@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
     android:clickable="true"
-    tools:context="com.appandgo.birthday.Activities.NDMainActivity">
+    tools:context="com.appandgo.birthday.Activities.MainActivity">
 
     <include layout="@layout/view_background_color"/>
     <TextView
@@ -68,7 +68,7 @@
             android:focusable="false"
             android:focusableInTouchMode="false"
             android:longClickable="false"
-            android:hint="Please enter your name" />
+            android:hint="Please enter your birthday" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -80,7 +80,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/general_margin"
         android:onClick="btnNextPressed"
-        android:text="Next"
+        android:text="Show birthday screen"
 
         tools:layout_editor_absoluteX="160dp"
         tools:layout_editor_absoluteY="323dp" />

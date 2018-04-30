@@ -1,36 +1,33 @@
-package com.appandgo.birthday.components;
+package com.appandgo.birthday.fragment;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.widget.DatePicker;
-import android.widget.TextView;
 
 import com.appandgo.birthday.R;
 
-import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Created by naor on 14/09/2017.
+ * Created by liran on 27/4/2018.
  */
 
-public class NDDatePickerDialog extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+public class BirthPickerDialog extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
     private DatePickerDialog.OnDateSetListener  mlistener;
 //    private TextView mTextView;
 
-    public NDDatePickerDialog()
+    public BirthPickerDialog()
     {
         super();
     }
 
     @SuppressLint("ValidFragment")
-    public NDDatePickerDialog(DatePickerDialog.OnDateSetListener listener)
+    public BirthPickerDialog(DatePickerDialog.OnDateSetListener listener)
     {
         this.mlistener = listener;
     }

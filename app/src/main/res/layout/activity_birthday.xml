@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
     android:clickable="true"
-    tools:context="com.appandgo.birthday.Activities.NDBirthdayActivity">
+    tools:context="com.appandgo.birthday.Activities.DetailsActivity">
 
     <include layout="@layout/view_background_color" />
 

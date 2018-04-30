@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".Activities.NDSplashActivity"
+            android:name=".Activities.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,26 +20,32 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activities.NDMainActivity"
+        <activity android:name=".Activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name=".Activities.NDBirthdayActivity"
-            android:label="@string/title_activity_ndbirthday"
+            android:name=".Activities.DetailsActivity"
+            android:label="@string/title_activity_birthday"
             android:theme="@style/AppTheme.NoActionBar"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
 
         </activity>
-        <activity android:name=".Activities.NDCaptureAndCropActivity"
+        <activity android:name=".Activities.CaptureImageActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
 
         </activity>
+
     </application>
+
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

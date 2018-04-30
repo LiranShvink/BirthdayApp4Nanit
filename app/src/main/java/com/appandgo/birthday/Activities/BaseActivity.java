@@ -7,23 +7,23 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.appandgo.birthday.R;
-import com.appandgo.birthday.objects.NDBirthdayObj;
-import com.appandgo.birthday.utils.NDUtils;
+import com.appandgo.birthday.dataobjects.BirthdayObj;
+import com.appandgo.birthday.utils.Utils;
 
-import static com.appandgo.birthday.Activities.NDMainActivity.ND_BIRTHDAY_OBJ;
+import static com.appandgo.birthday.Activities.MainActivity.BIRTHDAY_OBJ;
 
 /**
- * Created by naor on 13/09/2017.
+ * Created by liran on 27/4/2018.
  */
 
 enum ThemeAssets {
     BG,
     PLACEHOLDER,
     CAMICON,
-    OVERLAY;
+    OVERLAY
 }
 
-public class NDBaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity {
 
     protected int selectedTheme;
     protected TypedArray themeAssetArr;
@@ -38,7 +38,7 @@ public class NDBaseActivity extends AppCompatActivity {
 
     private void setTheme()
     {
-        NDBirthdayObj obj = (NDBirthdayObj) getIntent().getSerializableExtra(ND_BIRTHDAY_OBJ);
+        BirthdayObj obj = (BirthdayObj) getIntent().getSerializableExtra(BIRTHDAY_OBJ);
         if (obj == null) {
             // Should select random
             setRandomTheme();
@@ -79,7 +79,7 @@ public class NDBaseActivity extends AppCompatActivity {
     }
 
     protected void setRandomTheme() {
-        selectedTheme = NDUtils.getRandomThemeColor(this);
+        selectedTheme = Utils.getRandomThemeColor(this);
         setBarColors(selectedTheme);
         setThemeGrapics(selectedTheme);
     }
